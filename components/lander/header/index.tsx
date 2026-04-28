@@ -3,19 +3,20 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { BOOK_DEMO_HREF } from "@/components/lander/constants";
+import { APP_LOGIN_HREF, BOOK_DEMO_HREF } from "@/components/lander/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export const nav = [
-  { href: "#stats", label: "Impact" },
-  { href: "#capabilities", label: "Product" },
-  { href: "#platform", label: "Platform" },
-  { href: "#pipeline", label: "Workflow" },
-  { href: "#demo", label: "Live demo" },
-  { href: "#blog", label: "Insights" },
+  { href: "/#stats", label: "Impact" },
+  { href: "/#capabilities", label: "Product" },
+  { href: "/#integrations", label: "Integrations" },
+  { href: "/#pipeline", label: "Workflow" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/#demo", label: "Live demo" },
+  { href: "/insights", label: "Insights" },
 ];
 
 export function LanderHeader() {
@@ -27,7 +28,7 @@ export function LanderHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "fixed left-1/2 top-2 z-50 w-[96vw] max-w-4xl -translate-x-1/2 rounded-3xl border border-border/70",
+        "fixed left-1/2 top-2 z-50 w-[96vw] max-w-5xl -translate-x-1/2 rounded-3xl border border-border/70",
         "bg-background/85 shadow-xl shadow-black/5 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70",
         "p-0.5 md:p-1"
       )}
@@ -38,7 +39,7 @@ export function LanderHeader() {
     >
       <div className="mx-auto flex flex-row h-9 md:h-12 max-w-7xl items-center justify-between gap-4 px-3 md:px-5">
         <Link
-          href="#hero"
+          href="/#hero"
           className="flex flex-row items-center gap-3 shrink-0 font-primary text-[16px] font-semibold tracking-tight text-foreground"
         >
           <Image src="/logo.png" alt="Outplace" width={38} height={38} className="shrink-0" priority />
@@ -61,7 +62,10 @@ export function LanderHeader() {
 
         <div className="flex items-center gap-1">
           <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground" asChild>
-            <a href="#contact">Contact</a>
+            <a href={APP_LOGIN_HREF}>Login</a>
+          </Button>
+          <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground" asChild>
+            <a href="/#contact">Contact</a>
           </Button>
           <Button variant="default" size="sm" className="rounded-lg px-3 font-medium shadow" asChild>
             <a href={BOOK_DEMO_HREF}>Book demo</a>
@@ -91,7 +95,14 @@ export function LanderHeader() {
               </Link>
             ))}
             <a
-              href="#contact"
+              href={APP_LOGIN_HREF}
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-xl px-3 py-2 text-[14px] font-medium text-foreground hover:bg-muted"
+            >
+              Login
+            </a>
+            <a
+              href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-xl px-3 py-2 text-[14px] font-medium text-foreground hover:bg-muted"
             >

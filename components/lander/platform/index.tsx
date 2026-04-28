@@ -1,7 +1,15 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import type { ReactNode } from 'react';
+import React, {
+  useEffect,
+  useRef,
+} from 'react';
+
+import {
+  motion,
+  useInView,
+} from 'framer-motion';
 import {
   ClipboardList,
   FileText,
@@ -9,10 +17,15 @@ import {
   Mic,
   Receipt,
   Search,
-} from "lucide-react";
-import { fadeUp, landerViewport, staggerContainer, staggerItem } from "@/components/lander/motion-presets";
-import { cn } from "@/lib/utils";
-import React, { useEffect, useRef } from "react";
+} from 'lucide-react';
+
+import {
+  fadeUp,
+  landerViewport,
+  staggerContainer,
+  staggerItem,
+} from '@/components/lander/motion-presets';
+import { cn } from '@/lib/utils';
 
 function AccentUnderline({
   children,
@@ -462,7 +475,7 @@ function InvoicingAnimated() {
 }
 
 // Feature stack using animated visuals
-const FEATURE_LAYERS: readonly {
+export const FEATURE_LAYERS: readonly {
   key: string;
   title: ReactNode;
   body: string;
@@ -476,7 +489,7 @@ const FEATURE_LAYERS: readonly {
       </>
     ),
     body:
-      "Your candidate system of record—semantic search, list and kanban, bulk import—indexed for everything downstream.",
+      "Your candidate system of record—semantic search, lists, kanban, and clean migration paths from your existing ATS.",
     visual: <AtsAnimated />,
   },
   {
@@ -487,7 +500,7 @@ const FEATURE_LAYERS: readonly {
       </>
     ),
     body:
-      "Ask in plain English; Outplace ranks thousands of profiles by fit so shortlists land in seconds.",
+      "Describe the open req in plain English; Outplace ranks your candidate database by skills, location, availability, and placement fit in seconds.",
     visual: <MatchingAnimated />,
   },
   {
@@ -498,7 +511,7 @@ const FEATURE_LAYERS: readonly {
       </>
     ),
     body:
-      "Voice agents place screening calls, capture availability and fit, and hand off structured notes to recruiters.",
+      "Voice agents place screening calls to top ranked candidates, capture availability and fit, and hand off structured notes and summaries to your team.",
     visual: <VoiceOutreachAnimated />,
   },
   {
@@ -509,7 +522,7 @@ const FEATURE_LAYERS: readonly {
       </>
     ),
     body:
-      "Role-specific sessions with voice, screen share, and integrity checks—scores flow straight to the record.",
+      "Role-specific voice interviews with integrity checks and dynamic follow-up questions; evidence-based scoring and summaries go straight to the candidate record.",
     visual: <InterviewAnimated />,
   },
   {
@@ -527,7 +540,8 @@ const FEATURE_LAYERS: readonly {
     key: "bill",
     title: (
       <>
-        <AccentUnderline variant="orange">Invoicing</AccentUnderline> &amp; timesheets
+        <AccentUnderline variant="orange">Invoicing</AccentUnderline>{" "}
+        &amp; timesheets
       </>
     ),
     body:
@@ -548,16 +562,16 @@ export function LanderPlatform() {
           className="mb-10 text-center"
         >
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground font-secondary">
-            Platform overview
+            Layer demos
           </p>
           <h2 className="font-primary text-[clamp(1.5rem,4vw,2.25rem)] font-semibold leading-tight tracking-tight text-foreground">
-            Placement automation, end-to-end.{" "}
+            The architecture above,{" "}
             <span className="font-tertiary text-primary not-italic">
-              Six seamless layers.
+              working in practice.
             </span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground font-secondary">
-            Outplace unifies every workflow—resume, scheduling, outreach, interview, and billing—into one cohesive system.
+            Each surface below is a workflow view of the same connected candidate record, so handoffs feel continuous instead of modular.
           </p>
         </motion.div>
         <motion.div

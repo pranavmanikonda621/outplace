@@ -2,12 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { BOOK_DEMO_HREF } from "@/components/lander/constants";
+import {
+  BOOK_DEMO_HREF,
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+} from "@/components/lander/constants";
 import { fadeUp, landerViewport } from "@/components/lander/motion-presets";
 
 export function LanderCta() {
   return (
-    <section className="relative border-b border-border/10 bg-primary text-primary-foreground overflow-hidden p-4 m-4 rounded-2xl">
+    <section id="contact" className="relative scroll-mt-20 border-b border-border/10 bg-primary text-primary-foreground overflow-hidden p-4 m-4 rounded-2xl">
       {/* Background image */}
       {/*
         Replace background image with background video.
@@ -44,16 +48,26 @@ export function LanderCta() {
           <span className="font-tertiary text-primary-foreground/95 not-italic">Outplace</span>?
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-primary-foreground/85 font-secondary">
-          Bring a live req and a slice of your candidate data—we will walk through match, voice, and interview in one session.
+          Bring a live req and a slice of your candidate data. We will walk through match, voice, interview, and integrations in one session.
         </p>
-        <Button
-          size="lg"
-          variant="secondary"
-          className="mt-8 rounded-md bg-primary-foreground px-8 text-primary hover:bg-primary-foreground/90"
-          asChild
-        >
-          <a href={BOOK_DEMO_HREF}>Book demo</a>
-        </Button>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button
+            size="lg"
+            variant="secondary"
+            className="rounded-md bg-primary-foreground px-8 text-primary hover:bg-primary-foreground/90"
+            asChild
+          >
+            <a href={BOOK_DEMO_HREF}>Book demo</a>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="rounded-md border-primary-foreground/45 bg-primary-foreground/10 px-8 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+            asChild
+          >
+            <a href={CONTACT_MAILTO}>Email {CONTACT_EMAIL}</a>
+          </Button>
+        </div>
       </motion.div>
     </section>
   );

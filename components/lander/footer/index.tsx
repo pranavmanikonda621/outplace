@@ -5,9 +5,14 @@ import { motion } from "framer-motion";
 import { fadeUp, landerViewport } from "@/components/lander/motion-presets";
 import { nav } from "@/components/lander/header";
 import Image from "next/image";
+import { APP_LOGIN_HREF } from "@/components/lander/constants";
 
 // Keep the nav links content as-is
-const quickLinks = [...nav, { href: "#contact", label: "Contact" }];
+const quickLinks = [
+  ...nav,
+  { href: "/#contact", label: "Contact" },
+  { href: APP_LOGIN_HREF, label: "Login" },
+];
 
 export function LanderFooter() {
   return (

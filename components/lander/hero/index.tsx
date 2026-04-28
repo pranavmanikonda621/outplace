@@ -1,13 +1,22 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { BOOK_DEMO_HREF, CONTACT_MAILTO } from "@/components/lander/constants";
-import { staggerContainer, staggerItem } from "@/components/lander/motion-presets";
-import { CloudLightning } from "lucide-react";
-import Image from "next/image";
+import {
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
+import { CloudLightning } from 'lucide-react';
+import Image from 'next/image';
 
-import { MARQUEE_LOGOS } from "@/components/lander/hero/marquee-logos";
+import {
+  BOOK_DEMO_HREF,
+  CONTACT_MAILTO,
+} from '@/components/lander/constants';
+import { MARQUEE_LOGOS } from '@/components/lander/hero/marquee-logos';
+import {
+  staggerContainer,
+  staggerItem,
+} from '@/components/lander/motion-presets';
+import { Button } from '@/components/ui/button';
 
 function Marquee() {
   const images = MARQUEE_LOGOS;
@@ -36,7 +45,7 @@ function Marquee() {
               />
             </div>
           ))}
-    
+
           {/* Duplicate for seamless animation */}
           {images.map((img) => (
             <div
@@ -105,13 +114,13 @@ export function LanderHero() {
           >
             Outplace your <span className="font-tertiary text-primary not-italic">competitors</span>
           </motion.h1>
-     
+
           <motion.p
             variants={reduce ? undefined : staggerItem}
             className="mt-5 max-w-xl text-base text-muted-foreground sm:text-[17px] font-secondary"
           >
-            Outplace runs search, voice outreach, AI interviews, resume optimization, and billing in
-            one system—so recruiters stay on closing, not copy-paste.
+            Outplace is the AI-native OS that runs search, voice outreach, AI interviews, resume optimization, and client invoicing in
+            one system—so agencies stay focused on closing placements, not admin burden.
           </motion.p>
           <motion.div
             variants={reduce ? undefined : staggerItem}
@@ -140,7 +149,7 @@ export function LanderHero() {
       <div className="px-4 sm:px-8 md:px-16 lg:px-32">
         <Marquee />
       </div>
- 
+
     </section>
   );
 }

@@ -1,30 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { fadeUp, landerViewport } from "@/components/lander/motion-presets";
-import { cn } from "@/lib/utils";
+import { useState } from 'react';
+
+import {
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
+
+import {
+  fadeUp,
+  landerViewport,
+} from '@/components/lander/motion-presets';
+import { FEATURE_LAYERS } from '@/components/lander/platform';
+import { cn } from '@/lib/utils';
 
 const layers = [
   {
     title: "AI-native ATS",
-    body: "Your candidate system of record—semantic search, list and kanban, bulk import—indexed for everything downstream.",
+    body: "Your candidate system of record—semantic search, lists, kanban, and clean migration paths from your existing ATS.",
     label: "ATS",
   },
   {
     title: "Natural language matching",
-    body: "Ask in plain English; Outplace ranks thousands of profiles by fit so shortlists land in seconds.",
+    body: "Describe the open req in plain English; Outplace ranks your candidate database by skills, location, availability, and placement fit in seconds.",
     label: "MATCH",
   },
   {
     title: "AI voice outreach",
-    body: "Voice agents place screening calls, capture availability and fit, and hand off structured notes to recruiters.",
+    body: "Voice agents place screening calls to top ranked candidates, capture availability and fit, and hand off structured notes and summaries to your team.",
     label: "VOICE",
   },
   {
     title: "AI interviews",
-    body: "Role-specific sessions with voice, screen share, and integrity checks—scores flow straight to the record.",
+    body: "Role-specific voice interviews with integrity checks and dynamic follow-up questions; evidence-based scoring and summaries go straight to the candidate record.",
     label: "SCREEN",
   },
   {
@@ -407,7 +415,7 @@ export function LanderAgentFeatures() {
             <span className="font-tertiary text-primary not-italic">Complete placement ops.</span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground font-secondary">
-            Every capability stacks on the last—from ATS data to invoicing—so your agency runs as one system, not six tabs.
+            Every capability stacks on the last—from ATS data to invoicing—so your agency runs as one system, not six tabs. The next section shows those layers in motion.
           </p>
         </motion.div>
 
@@ -418,7 +426,7 @@ export function LanderAgentFeatures() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="mt-12 overflow-hidden rounded-2xl border border-border/80 bg-card shadow-lg ring-1 ring-border/25"
         >
-          <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:divide-x md:divide-border/60">
+          <div className="grid lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:divide-x lg:divide-border/60">
             <div className="relative border-b border-border/60 bg-muted/20 px-4 py-8 md:border-b-0 md:px-4 md:py-10 lg:px-8">
               <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Architecture
@@ -429,90 +437,62 @@ export function LanderAgentFeatures() {
               <FeatureIsoStack activeLayerIndex={active} reduceMotion={reduce} />
             </div>
 
-            <div
-              className="border-t border-border/50 bg-accent/35 md:border-t-0"
-              role="tablist"
-              aria-label="Outplace platform layers"
-            >
-              {layers.map((layer, i) => {
-                const isOpen = active === i;
-                return (
-                  <div key={layer.title} className="border-b border-border/40 last:border-b-0">
+            <div className="border-t border-border/50 bg-accent/25 p-4 sm:p-5 lg:border-t-0" role="tablist" aria-label="Outplace product layers">
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Product layers
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {FEATURE_LAYERS.map((layer, i) => {
+                  const isOpen = active === i;
+                  return (
                     <button
+                      key={layer.key}
                       type="button"
                       role="tab"
                       aria-selected={isOpen}
-                      aria-expanded={isOpen}
                       id={`layer-tab-${i}`}
                       className={cn(
-                        "group relative flex w-full items-start gap-3 py-5 pl-3 pr-4 text-left transition-colors md:gap-4 md:py-6 md:pl-4",
+                        "group flex min-h-[300px] w-full flex-col overflow-hidden rounded-2xl border bg-card p-4 text-left shadow-sm transition-[border-color,box-shadow,transform,background-color]",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
-                        isOpen && "bg-primary/[0.06]",
+                        isOpen
+                          ? "border-primary/55 bg-primary/[0.04] shadow-md"
+                          : "border-border/60 hover:-translate-y-0.5 hover:border-border hover:bg-card/90",
                       )}
                       onClick={() => setActive(i)}
+                      onMouseEnter={() => setActive(i)}
                     >
-                      <span
+                      <div className="flex items-center justify-between gap-3">
+                        <span
+                          className={cn(
+                            "text-[11px] font-semibold tabular-nums",
+                            isOpen ? "text-primary" : "text-muted-foreground",
+                          )}
+                        >
+                          {String(i + 1).padStart(2, "0")} / {layers[i].label}
+                        </span>
+                        <span
+                          className={cn("size-2 rounded-full transition-colors", isOpen ? "bg-primary" : "bg-border")}
+                          aria-hidden
+                        />
+                      </div>
+                      <h3
                         className={cn(
-                          "absolute left-0 top-0 bottom-0 w-1 rounded-r-sm transition-colors",
-                          isOpen ? "bg-primary" : "bg-transparent group-hover:bg-border",
-                        )}
-                        aria-hidden
-                      />
-                      <span
-                        className={cn(
-                          "mt-0.5 w-9 shrink-0 text-xs font-semibold tabular-nums",
-                          isOpen ? "text-primary" : "text-muted-foreground",
+                          "mt-4 font-primary text-left text-base font-semibold leading-snug transition-colors",
+                          isOpen ? "text-primary" : "text-foreground",
                         )}
                       >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span
-                        className={cn(
-                          "mt-2 hidden size-1.5 shrink-0 rounded-full md:block",
-                          isOpen ? "bg-primary" : "bg-primary/35",
-                        )}
-                        aria-hidden
-                      />
-                      <div className="min-w-0 flex-1 pb-1">
-                        <div className="flex items-center justify-between gap-2 px-1">
-                          <span
-                            className={cn(
-                              "font-primary text-sm font-semibold transition-colors md:text-base",
-                              isOpen ? "text-primary" : "text-foreground group-hover:text-foreground",
-                            )}
-                          >
-                            {layer.title}
-                          </span>
-                          {isOpen ? (
-                            <ChevronUp className="size-3.5 shrink-0 text-primary" aria-hidden />
-                          ) : (
-                            <ChevronDown
-                              className="size-3.5 shrink-0 text-muted-foreground opacity-70"
-                              aria-hidden
-                            />
-                          )}
-                        </div>
-                        <AnimatePresence initial={false} mode="popLayout">
-                          {isOpen ? (
-                            <motion.div
-                              key="body"
-                              initial={reduce ? false : { height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={reduce ? undefined : { height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <p className="pt-3 pb-1 text-[13px] leading-relaxed text-muted-foreground md:text-[14px] md:leading-relaxed font-secondary">
-                                {layer.body}
-                              </p>
-                            </motion.div>
-                          ) : null}
-                        </AnimatePresence>
+                        {layer.title}
+                      </h3>
+                      <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground font-secondary">
+                        {layer.body}
+                      </p>
+                      <div className="mt-auto max-h-[142px] overflow-hidden pt-2">
+                        {layer.visual}
                       </div>
                     </button>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </motion.div>

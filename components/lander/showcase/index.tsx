@@ -1,36 +1,48 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { fadeUp, landerViewport } from "@/components/lander/motion-presets";
-import { LanderSection } from "@/components/lander/section-surface";
-import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
 import {
-  Mic,
-  LayoutDashboard,
-  Users,
-  Inbox,
-  FileEdit,
-  Phone,
-  Receipt,
+  type ReactNode,
+  useState,
+} from 'react';
+
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
+import type { LucideIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  Bell,
+  Building2,
+  Check,
+  Clock,
   Copy,
   ExternalLink,
-  Check,
-  Sparkles,
-  Search,
+  FileEdit,
+  FileText,
+  Inbox,
+  Layers,
+  LayoutDashboard,
   LayoutGrid,
   List,
-  Bell,
-  ArrowRight,
-  Clock,
-  Upload,
-  FileText,
-  Building2,
+  Mic,
+  Phone,
   PhoneCall,
-  Layers,
-} from "lucide-react";
+  Receipt,
+  Search,
+  Sparkles,
+  Upload,
+  Users,
+} from 'lucide-react';
+
+import {
+  fadeUp,
+  landerViewport,
+} from '@/components/lander/motion-presets';
+import { LanderSection } from '@/components/lander/section-surface';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 type ShowcaseTabId =
   | "home"
@@ -242,7 +254,7 @@ function HomePanel() {
             SAP SuccessFactors architect based in Atlanta, GA
           </p>
           <p className="mt-2 text-[11px] leading-snug text-muted-foreground font-secondary">
-            Ask in plain English; Outplace ranks matches across your full database—not just keyword fields.
+            Describe the open requirement in plain English; Outplace ranks matches across your full database, not just keyword fields.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
