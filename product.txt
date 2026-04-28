@@ -1,0 +1,48 @@
+
+
+Hi, my name is Sugar Maniconda, I'm the co-founder of Outplace. Outplace is the AI-native operating system for staffing and recruiting agencies.
+0:10
+Um, and so I'd like to take a few minutes today to kind of just walk you through our initial product, um, and to under- understand how Outplace can help double your placements without hiring any extra staff.
+0:21
+Um, so, yeah, let's just jump right into it. So, as we can see here, Outplace essentially starts with, uh, AI-native ATS.
+0:31
+This is kind of, An anchor for Outplace to reference candidate data. It functions a lot better and a lot cleaner compared to a standard ATS software, um, and achieves feature parity with any standard ATS.
+0:44
+Um, including semantic search, um, so just, searching, you know, for a candidate by name, sorting, list, and can-ban view, um, and generally just a solid standard experience.
+0:59
+
+However, where Outplace shines is natural language matching, uh, where, and natural language searching. So, for example, if I want to search for an SAP success factors architect based in Atlanta, Outplace will rank the- Matches by indexing all of the information we have on file for all the candidates
+1:24
+in our database and return a list of AI matches. Um, and so as we can see here, Neha Sharma is a strong match for the particular role or requirement I had in mind.
+1:36
+Um. This obviously will, is really helpful because it can scale to thousands and thousands and thousands of candidates, um, and runs pretty efficiently.
+1:45
+So kind of diving in here, we can see that if I click into Neha Sharma's profile, we can run a set of AI powered workflows, um, that make up the 80-20 of the back office for any staffing organization.
+1:58
+So for example, one workflow we've thought about is creating an AI outreach call. Um, so what this will do is this will pre-populate Neha's information on our AI candidate outreach.
+2:08
+Each page Neha can then go ahead and receive a call from your company via an AI voice agent, which will essentially collect preliminary information, including understanding the role, understanding Neha's availability, her location.
+2:24
+Um, and kind of grading and evaluating if her experience and role is a-is a good fit. The next workflow we can kind of kick off, um, is we can actually go ahead and kick off an AI interview for Neha.
+2:40
+So we can pre-fill her information here, um, and we can create a linked interview that will actually evaluate Neha's technical ability, uh, for the requirement in mind.
+2:51
+So I'm gonna go ahead and show what that might look like. And so, as you can see here, um, the link I copied and pasted into my browser, which is a public link, um, will show Neha's name and email.
+3:11
+Um, it will- require screen sharing and a camera and microphone access for voice integrity. And as we can see here, I can speak into the module and receive SAP SuccessFactors relevant questions.
+3:28
+Um, Um, that I can respond to. After this is done, uh, what we will, what we can do is we can actually review the assessment, uhm, review the questions that were answered, um, and kind of understand the grading details.
+3:43
+to local health officials and health And this as well as see and evaluate the screen share and camera microphone for integrity.
+3:50
+Um, a couple more things that we have in our initial version of, of our place. Uh, the first one is a resume optimizer.
+3:56
+So here I can, um, you know, paste in. Or, you know, upload a candidate resume. Umm, match it, uh, to a job description and see what the optimized resume looks like.
+4:14
+Uh, additionally, we also have. Invoicing in timesheet, so I can, uh, add, you know, consultants and vendors. Umm, and generate invoices for them, including manual upload as well as timesheet upload.
+4:31
+Umm, . And, yeah, I can go ahead and kind of, you know, generate invoices based on pre-filled rates. We can do fixed fee or we can do kind of hourly invoices.
+4:44
+Umm, so just to kind of look, let's see what an invoice session looks like. You can. See here. Umm, and yeah, that, that kind of wraps up our initial version of Outplace.
+4:52
+Uh, we're very excited to work with Leepier and, and we'd love to hear back. Thanks.
