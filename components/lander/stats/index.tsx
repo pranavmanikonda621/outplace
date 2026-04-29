@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+
+import { LanderPurpleNoiseBackground } from "@/components/lander/purple-noise-background";
 import { fadeUp, landerViewport, staggerContainer, staggerItem } from "@/components/lander/motion-presets";
 
 const stats = [
@@ -14,8 +16,12 @@ export function LanderStats() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="stats" className="scroll-mt-20 border-b border-border/60 bg-muted/50">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+    <section
+      id="stats"
+      className="relative scroll-mt-20 overflow-hidden border-b border-white/10"
+    >
+      <LanderPurpleNoiseBackground />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -23,15 +29,14 @@ export function LanderStats() {
           variants={fadeUp}
           className="mb-10 max-w-2xl mx-auto text-center"
         >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground font-secondary">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-200/90 font-secondary">
             Impact
           </p>
-          <h2 className="mt-2 font-primary text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="mt-2 font-primary text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             Built for agencies that measure{" "}
-            <span className="font-tertiary text-primary not-italic">placements</span>, not busywork.
+            <span className="font-tertiary not-italic text-purple-100">placements</span>, not busywork.
           </h2>
         </motion.div>
-   
 
         <motion.div
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
@@ -44,13 +49,13 @@ export function LanderStats() {
             <motion.div
               key={s.label}
               variants={reduce ? undefined : staggerItem}
-              className="relative border-l-2 border-primary/35 pl-5"
+              className="relative border-l-2 border-purple-300/45 pl-5"
             >
-              <p className="font-primary text-3xl font-semibold tabular-nums tracking-tight text-foreground sm:text-4xl">
+              <p className="font-primary text-3xl font-semibold tabular-nums tracking-tight text-white sm:text-4xl">
                 {s.value}
               </p>
-              <p className="mt-2 text-sm font-medium text-foreground font-secondary">{s.label}</p>
-              <p className="mt-1 text-[13px] text-muted-foreground font-secondary">{s.hint}</p>
+              <p className="mt-2 text-sm font-medium text-purple-50/95 font-secondary">{s.label}</p>
+              <p className="mt-1 text-[13px] text-purple-200/80 font-secondary">{s.hint}</p>
             </motion.div>
           ))}
         </motion.div>
