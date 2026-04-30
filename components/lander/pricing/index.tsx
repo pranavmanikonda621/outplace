@@ -27,7 +27,7 @@ const plans = [
       "50 resume optimizations, then $0.25 each",
       "Candidate database and ATS",
       "AI candidate outreach",
-      "Invoice and timesheets",
+      "Base timesheets and invoicing",
     ],
   },
   {
@@ -42,9 +42,9 @@ const plans = [
       "Unlimited AI voice calls",
       "Unlimited interviews",
       "Unlimited resume optimizations",
-      "Agentic inbox",
+      "Agentic inbox and smart replies",
       "Document automation",
-      "Consultant portals",
+      "Custom consultant timesheet and invoicing portals",
       "AI smart invoicing",
       "2-way SMS candidate outreach",
       "Predefined admin, recruiter, and finance roles",
@@ -153,7 +153,7 @@ export function LanderPricing() {
               key={plan.name}
               variants={staggerItem}
               className={cn(
-                "relative flex min-h-[520px] flex-col rounded-lg border bg-product-surface px-6 py-8 sm:px-8 lg:px-9",
+                "relative flex min-h-[560px] flex-col rounded-lg border bg-product-surface px-6 py-8 sm:px-8 lg:px-7",
                 plan.highlighted
                   ? "border-[#4b73ff] shadow-[0_0_0_1px_rgba(75,115,255,0.7)]"
                   : "border-product-border/50"
@@ -186,13 +186,13 @@ export function LanderPricing() {
                 ) : null}
               </div>
 
-              <ul className="mt-10 space-y-5">
+              <ul className="mt-10 space-y-4">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex gap-3 text-base leading-snug text-product-fg/90 font-secondary sm:text-lg"
+                    className="flex gap-3 text-[15px] leading-snug text-product-fg/90 font-secondary sm:text-base"
                   >
-                    <Check className="mt-0.5 size-5 shrink-0 stroke-[3] text-[#4b73ff]" />
+                    <Check className="mt-0.5 size-4 shrink-0 stroke-[3] text-[#4b73ff]" />
                     <span>{feature}</span>
                   </li>
                 ))}
