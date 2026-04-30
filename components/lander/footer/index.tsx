@@ -5,13 +5,22 @@ import { motion } from "framer-motion";
 import { fadeUp, landerViewport } from "@/components/lander/motion-presets";
 import { nav } from "@/components/lander/header";
 import Image from "next/image";
-import { APP_LOGIN_HREF } from "@/components/lander/constants";
+import {
+  APP_LOGIN_HREF,
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+} from "@/components/lander/constants";
 
 // Keep the nav links content as-is
 const quickLinks = [
   ...nav,
   { href: "/#contact", label: "Contact" },
   { href: APP_LOGIN_HREF, label: "Login" },
+];
+
+const legalLinks = [
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 export function LanderFooter() {
@@ -46,7 +55,7 @@ export function LanderFooter() {
 
           {/* Quick Links */}
           <nav
-            className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full sm:max-w-2xl"
+            className="grid grid-cols-2 gap-8 w-full sm:max-w-3xl sm:grid-cols-4"
             aria-label="Footer"
           >
             <div>
@@ -100,6 +109,23 @@ export function LanderFooter() {
                 ))}
               </ul>
             </div>
+            <div>
+              <div className="mb-2 text-[11px] font-bold uppercase tracking-[.08em] text-muted-foreground/80">
+                Legal
+              </div>
+              <ul className="space-y-1">
+                {legalLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
 
           {/* Contact/Icons */}
@@ -110,8 +136,9 @@ export function LanderFooter() {
             <div className="flex gap-3">
               {/* Placeholder icons (replace with actual icons as needed) */}
               <a
-                href="mailto:contact@outplace.com"
+                href={CONTACT_MAILTO}
                 aria-label="Email"
+                title={CONTACT_EMAIL}
                 className="text-muted-foreground hover:text-foreground transition-colors text-lg"
               >
                 <svg width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
@@ -123,7 +150,7 @@ export function LanderFooter() {
             </div>
           </div>
         </div>
-        <p className="text-[12px] text-muted-foreground sm:text-right mt-4 text-center mb-8">
+        <p className="text-[12px] text-muted-foreground sm:text-right mt-2 text-center mb-4">
           © {new Date().getFullYear()} Outplace
         </p>
       </motion.div>
