@@ -15,7 +15,6 @@ export const nav = [
   { href: "/#integrations", label: "Integrations" },
   { href: "/#pipeline", label: "Workflow" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/#demo", label: "Live demo" },
   { href: "/insights", label: "Insights" },
 ];
 

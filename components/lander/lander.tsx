@@ -8,7 +8,6 @@ import { LanderHero } from "@/components/lander/hero";
 import { LanderIntegrations } from "@/components/lander/integrations";
 import { LanderStats } from "@/components/lander/stats";
 import { LanderCta } from "@/components/lander/cta";
-import { LanderDemo } from "@/components/lander/demo";
 import { Marquee } from "./marquee";
 
 export function Lander() {
@@ -20,7 +19,6 @@ export function Lander() {
         <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-32 py-8">
         <Marquee />
       </div>
-        <LanderDemo />
         <LanderStats />
         <LanderAgentFeatures />
         <LanderIntegrations />
