@@ -32,7 +32,7 @@ const plans = [
   },
   {
     name: "Pro",
-    monthlyPrice: 599,
+    monthlyPrice: 299,
     suffix: "/seat/mo",
     cta: "Book a demo",
     href: BOOK_DEMO_HREF,
