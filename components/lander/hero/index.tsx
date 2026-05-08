@@ -39,7 +39,7 @@ export function LanderHero() {
           >
             <CloudLightning className="size-3.5 text-purple-200/90" aria-hidden />
             <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-purple-200/95 font-secondary">
-              AI-native Operating System for Staffing and Recruiting Agencies
+              AI-native Recruiting Platform for Staffing and Recruiting Agencies
             </span>
           </motion.div>
           <motion.h1
@@ -54,7 +54,7 @@ export function LanderHero() {
             variants={reduce ? undefined : staggerItem}
             className="mt-5 max-w-xl text-base text-purple-200/85 sm:text-[17px] font-secondary"
           >
-            Outplace is the AI-native OS that runs search, voice outreach, AI interviews, resume optimization, and client invoicing in
+            Outplace is the AI-native recruiting platform that runs search, voice outreach, AI interviews, resume optimization, and client invoicing in
             one system—so agencies stay focused on closing placements, not admin burden.
           </motion.p>
           <motion.div
