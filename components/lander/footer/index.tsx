@@ -49,7 +49,7 @@ export function LanderFooter() {
               <span className="font-primary text-base font-bold tracking-tight text-foreground">Outplace</span>
             </div>
             <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground font-secondary max-w-[250px]">
-              The AI-native operating system for staffing and recruiting agencies.
+              The AI-native recruiting platform for staffing and recruiting agencies.
             </p>
           </div>
 

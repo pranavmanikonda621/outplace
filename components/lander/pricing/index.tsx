@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -18,13 +17,15 @@ const plans = [
     name: "Starter",
     monthlyPrice: 99,
     suffix: "/seat/mo",
+    priceNote: "1-seat minimum",
     cta: "Book a demo",
     href: BOOK_DEMO_HREF,
     highlighted: false,
     features: [
-      "20 AI voice calls, then $0.30 each",
-      "30 interviews, then $0.50 each",
-      "50 resume optimizations, then $0.25 each",
+      "100 voice minutes included, then $0.76/min",
+      "250 SMS segments included, then $0.10/segment",
+      "10 AI interviews included, then $1.00/interview",
+      "20 resume tailoring runs included, then $0.30/run",
       "Candidate database and ATS",
       "AI candidate outreach",
       "Base timesheets and invoicing",
@@ -32,16 +33,18 @@ const plans = [
   },
   {
     name: "Pro",
-    monthlyPrice: 299,
+    monthlyPrice: 399,
     suffix: "/seat/mo",
+    priceNote: "2-seat minimum; $798/mo minimum base",
     cta: "Book a demo",
     href: BOOK_DEMO_HREF,
     highlighted: true,
     badge: "Most popular",
     features: [
-      "Unlimited AI voice calls",
-      "Unlimited interviews",
-      "Unlimited resume optimizations",
+      "1,000 voice minutes included, then $0.76/min",
+      "2,500 SMS segments included, then $0.10/segment",
+      "100 AI interviews included, then $1.00/interview",
+      "200 resume tailoring runs included, then $0.30/run",
       "Agentic inbox and smart replies",
       "Document automation",
       "Custom consultant timesheet and invoicing portals",
@@ -69,22 +72,17 @@ const plans = [
   },
 ];
 
-type BillingCycle = "monthly" | "annual";
-
-function getPlanPrice(plan: (typeof plans)[number], billingCycle: BillingCycle) {
+function getPlanPrice(plan: (typeof plans)[number]) {
   const monthlyPrice = "monthlyPrice" in plan ? plan.monthlyPrice : undefined;
 
   if (typeof monthlyPrice !== "number") {
     return "priceLabel" in plan ? plan.priceLabel : "";
   }
 
-  const multiplier = billingCycle === "annual" ? 0.85 : 1;
-  return `$${Math.round(monthlyPrice * multiplier)}`;
+  return `$${monthlyPrice}`;
 }
 
 export function LanderPricing() {
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
-
   return (
     <section
       id="pricing"
@@ -102,46 +100,8 @@ export function LanderPricing() {
             Choose your plan
           </h2>
           <p className="mt-4 text-base leading-relaxed text-product-muted font-secondary sm:text-lg">
-            Platform fees are per seat per month. Starter usage is shared across the workspace.
+            Platform fees are per seat per month. Included usage is shared across the workspace, with overages billed by usage.
           </p>
-          <div
-            className="mx-auto mt-6 inline-flex rounded-lg border border-product-border/70 bg-product-surface-elevated p-1"
-            role="group"
-            aria-label="Billing cycle"
-          >
-            {[
-              { value: "monthly", label: "Monthly" },
-              { value: "annual", label: "Annual", helper: "15% off" },
-            ].map((option) => {
-              const selected = billingCycle === option.value;
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  className={cn(
-                    "flex min-h-9 items-center gap-2 rounded-md px-4 text-sm font-semibold transition-colors",
-                    selected
-                      ? "bg-[#4b73ff] text-white shadow-sm"
-                      : "text-product-muted hover:bg-product-surface hover:text-product-fg"
-                  )}
-                  aria-pressed={selected}
-                  onClick={() => setBillingCycle(option.value as BillingCycle)}
-                >
-                  <span>{option.label}</span>
-                  {option.helper ? (
-                    <span
-                      className={cn(
-                        "rounded-full px-2 py-0.5 text-[11px]",
-                        selected ? "bg-white/18 text-white" : "bg-product-surface text-product-muted"
-                      )}
-                    >
-                      {option.helper}
-                    </span>
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
         <motion.div
@@ -171,7 +131,7 @@ export function LanderPricing() {
                 </h3>
                 <div className="mt-8 flex items-end gap-1">
                   <span className="font-primary text-left text-5xl font-semibold tracking-tight text-product-fg sm:text-6xl">
-                    {getPlanPrice(plan, billingCycle)}
+                    {getPlanPrice(plan)}
                   </span>
                   {plan.suffix ? (
                     <span className="pb-2 text-base font-semibold text-product-subtle font-secondary sm:text-lg">
@@ -179,9 +139,9 @@ export function LanderPricing() {
                     </span>
                   ) : null}
                 </div>
-                {"monthlyPrice" in plan && billingCycle === "annual" ? (
+                {"priceNote" in plan ? (
                   <p className="mt-3 text-[13px] font-medium text-product-muted font-secondary">
-                    Billed annually with 15% savings.
+                    {plan.priceNote}
                   </p>
                 ) : null}
               </div>
