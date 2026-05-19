@@ -55,7 +55,7 @@ export function LanderHero() {
             className="mt-5 max-w-xl text-base text-purple-200/85 sm:text-[17px] font-secondary"
           >
             Outplace is the AI-native recruiting platform that runs search, voice outreach, AI interviews, resume optimization, and client invoicing in
-            one system—so agencies stay focused on closing placements, not admin burden.
+            one system, so agencies stay focused on closing placements, not admin burden.
           </motion.p>
           <motion.div
             variants={reduce ? undefined : staggerItem}
